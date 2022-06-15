@@ -1,0 +1,7 @@
+*.ts
+!*.d.ts
+tsconfig.json
+test
+.idea
+.env
+*.tgz

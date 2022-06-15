@@ -1,0 +1,37 @@
+{
+  "name": "p12-info",
+  "version": "1.0.0",
+  "description": "Parse P12 (PKCS #12) certificates",
+  "author": "ΔO - David Obdržálek <david@deltazero.cz>",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "mocha dist/tests",
+    "build": "tsc -b",
+    "prepare": "npm run build"
+  },
+  "repository": "deltazero-cz/node-p12-info",
+  "dependencies": {
+    "iconv-lite": "^0.6.3",
+    "node-forge": "^1.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.00",
+    "@types/node-forge": "^1.0.2",
+    "@types/mocha": "latest",
+    "@types/chai": "latest",
+    "typescript": "latest",
+    "mocha": "latest",
+    "chai": "latest"
+  },
+  "keywords": [
+    "node",
+    "pfx",
+    "p12",
+    "pkcs",
+    "pkcs12",
+    "pkcs#12",
+    "certificates"
+  ]
+}
