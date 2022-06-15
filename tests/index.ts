@@ -62,6 +62,10 @@ describe('Fail to Read', () => {
     expect(() => readRaw('hovno', pass)).to.throw('Too few bytes')
   })
 
+  it ('Incomplete Certificate File', () => {
+    expect(() => readRaw(file.slice(0, 4200), pass)).to.throw('Too few bytes')
+  })
+
   it ('Wrong Password', () => {
     expect(() => readRaw(file, pass+'x')).to.throw('Invalid password')
   })
