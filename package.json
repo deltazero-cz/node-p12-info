@@ -1,6 +1,6 @@
 {
   "name": "p12-info",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Parse P12 (PKCS #12) certificates",
   "author": "ΔO - David Obdržálek <david@deltazero.cz>",
   "license": "ISC",
