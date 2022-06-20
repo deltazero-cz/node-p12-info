@@ -50,7 +50,7 @@ export const readRaw = (cert: Buffer, pass: string) : AnyObject => {
 export default function p12info(cert: Buffer, pass: string) : InfoType {
   const data = readRaw(cert, pass)
   return {
-    friendlyName: data.attributes.friendlyName[0],
+    friendlyName: iconv.encode(data.attributes.friendlyName[0], 'latin1').toString('utf8'),
 
     subject: data.cert.subject?.attributes.reduce((a: AnyObject, r: Attribute) => {
       r.name && (a[r.name] = iconv.encode(r.value, 'latin1').toString('utf8'))
