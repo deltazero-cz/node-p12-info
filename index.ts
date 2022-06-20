@@ -1,5 +1,4 @@
 import * as forge from 'node-forge'
-import * as iconv from 'iconv-lite'
 
 type AnyObject = {
   [key: string]: any
@@ -50,15 +49,15 @@ export const readRaw = (cert: Buffer, pass: string) : AnyObject => {
 export default function p12info(cert: Buffer, pass: string) : InfoType {
   const data = readRaw(cert, pass)
   return {
-    friendlyName: iconv.encode(data.attributes.friendlyName[0], 'latin1').toString('utf8'),
+    friendlyName: data.attributes.friendlyName[0],
 
     subject: data.cert.subject?.attributes.reduce((a: AnyObject, r: Attribute) => {
-      r.name && (a[r.name] = iconv.encode(r.value, 'latin1').toString('utf8'))
+      r.name && (a[r.name] = Buffer.from(r.value, 'latin1').toString())
       return a
     }, {}),
 
     issuer: data.cert.issuer?.attributes.reduce((a: AnyObject, r: Attribute) => {
-      r.name && (a[r.name] = iconv.encode(r.value, 'latin1').toString('utf8'))
+      r.name && (a[r.name] = Buffer.from(r.value, 'latin1').toString())
       return a
     }, {}),
 

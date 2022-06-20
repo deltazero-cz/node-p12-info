@@ -69,5 +69,4 @@ describe('Fail to Read', () => {
   it ('Wrong Password', () => {
     expect(() => readRaw(file, pass+'x')).to.throw('Invalid password')
   })
-
 })
